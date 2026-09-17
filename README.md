@@ -17,7 +17,7 @@ OmaMullvad follows the active Omarchy theme and works with the stock bar and Shi
 ## Install
 
 ```bash
-omarchy plugin add https://github.com/kallupx/oma-mullvad.git --enable
+omarchy plugin add https://github.com/pglombardo/oma-mullvad.git --enable
 ```
 
 OmaMullvad targets Mullvad VPN 2026.4. If Mullvad is missing, the panel can install the AUR package `mullvad-vpn-bin` after confirmation.
@@ -35,15 +35,15 @@ The panel has Overview, Locations, Advanced, and Excluded Apps pages. It is full
 OmaMullvad does not add keybindings automatically. Example `~/.config/hypr/bindings.lua` entries:
 
 ```lua
-o.bind("SUPER + SHIFT + V", "Toggle Mullvad", "omarchy-shell io.github.kallupx.oma-mullvad toggleTunnel")
-o.bind("SUPER + ALT + V", "Next Mullvad favourite", "omarchy-shell io.github.kallupx.oma-mullvad nextFavorite")
-o.bind("SUPER + SHIFT + ALT + V", "OmaMullvad panel", "omarchy-shell io.github.kallupx.oma-mullvad toggle")
+o.bind("SUPER + SHIFT + V", "Toggle Mullvad", "omarchy-shell io.github.pglombardo.oma-mullvad toggleTunnel")
+o.bind("SUPER + ALT + V", "Next Mullvad favourite", "omarchy-shell io.github.pglombardo.oma-mullvad nextFavorite")
+o.bind("SUPER + SHIFT + ALT + V", "OmaMullvad panel", "omarchy-shell io.github.pglombardo.oma-mullvad toggle")
 ```
 
 ## Uninstall
 
 ```bash
-omarchy plugin remove io.github.kallupx.oma-mullvad
+omarchy plugin remove io.github.pglombardo.oma-mullvad
 ```
 
 ## Privacy

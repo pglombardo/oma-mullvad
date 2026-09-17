@@ -11,7 +11,7 @@ import "Model.js" as Model
 Panel {
   id: root
 
-  moduleName: "io.github.kallupx.oma-mullvad"
+  moduleName: "io.github.pglombardo.oma-mullvad"
   ipcTarget: moduleName
   manageIpc: false
 
