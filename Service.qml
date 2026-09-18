@@ -11,6 +11,7 @@ Item {
   readonly property int finiteOutputLines: 4096
   readonly property int finiteOutputChars: 262144
   readonly property int listenerLineChars: 8192
+  readonly property string listenerOverflowError: "Mullvad status listener output limit exceeded"
   property int readTimeoutMs: 10000
   property int actionTimeoutMs: 20000
 
@@ -306,7 +307,8 @@ Item {
       }
       try {
         _applyStatus(raw, root._pendingStatusSeq)
-        if (lastError.indexOf("Mullvad daemon unavailable") === 0) lastError = ""
+        if (lastError.indexOf("Mullvad daemon unavailable") === 0
+            || (lastError === listenerOverflowError && !_listenerOverflowed)) lastError = ""
         _ensureListener()
       } catch (e) {
         lastError = _shortError(e, "Could not parse Mullvad status")
@@ -744,7 +746,7 @@ Item {
     _listenerOverflowCount++
     listenerProcess.outputRemainder = ""
     listenerProcess.errorRemainder = ""
-    lastError = "Mullvad status listener output limit exceeded"
+    lastError = listenerOverflowError
     if (listenerProcess.running) listenerProcess.signal(15)
   }
 
